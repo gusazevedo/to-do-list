@@ -20,10 +20,13 @@
   --danger: #E25858;
 }
 
-body, input, textarea, button {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+body {
+  background: var(--gray-600);
+}
 
+body, input, textarea, button {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
 }
 
 button {

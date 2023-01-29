@@ -1,0 +1,41 @@
+.formContainer {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 736px;
+  margin: -27px auto 0;
+
+  input {
+    height: 100%;
+    padding: 16px;
+    border: 1px solid var(--gray-700);
+    border-radius: 8px;
+    background: var(--gray-500);
+    color: var(--gray-300);
+    width: 100%;
+  }
+
+  button {
+    height: 100%;
+    background: var(--dark-blue);
+    color: var(--gray-100);
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    transition: background 0.2s;
+
+    &:hover {
+      background: var(--blue);
+    }
+  }
+}
