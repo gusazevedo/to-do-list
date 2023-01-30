@@ -1,0 +1,40 @@
+.item {
+  background: var(--gray-500);
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  padding: 16px;
+
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .item-info {
+    display: flex;
+    gap: 12px;
+
+    .check-item {
+      accent-color: var(--blue);
+      height: 100%;
+    }
+  }
+
+  span {
+    display: block;
+    color: var(--gray-100);
+    line-height: 19.6px;
+    font-size: 14px;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    color: var(--gray-300);
+
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--danger);
+    }
+  }
+}

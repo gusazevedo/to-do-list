@@ -1,13 +1,31 @@
+import React, {useState} from 'react';
 import {PlusCircle} from 'phosphor-react';
 import './styles.scss';
 
-export function Form() {
+interface FormContainerProps {
+    handleNewTask: (task: string) => void;
+}
+
+export function Form({handleNewTask}: FormContainerProps) {
+    const [value, setValue] = useState('');
+
+    function handleForm(evt: React.FormEvent<HTMLFormElement>) {
+        evt.preventDefault();
+        handleNewTask(value);
+        setValue('');
+    }
+
     return (
-        <form className="formContainer">
-            <input type="text" placeholder="Adicione uma tarefa..."/>
+        <form className="formContainer" onSubmit={(evt) => handleForm(evt)}>
+            <input
+                type="text"
+                placeholder="Adicione uma tarefa..."
+                value={value}
+                onChange={(evt) => setValue(evt.target.value)}
+            />
             <button>
                 Criar
-                <PlusCircle size={18} weight='bold'/>
+                <PlusCircle size={18} weight="bold"/>
             </button>
         </form>
     );

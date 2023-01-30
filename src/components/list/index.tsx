@@ -1,12 +1,26 @@
+import {useState} from 'react';
 import {ListHeader} from '../list-header';
-import './styles.scss';
 import {ListContent} from '../list-content';
 
-export function List() {
+import './styles.scss';
+import {taskProps} from '../../utils';
+
+interface ListProps {
+    tasks: taskProps[];
+    completedTasks: number;
+    handleDeleteTask: (id: string) => void;
+}
+
+export function List({tasks, completedTasks, handleDeleteTask}: ListProps) {
+
     return (
         <section className="listContainer">
-            <ListHeader done={5} newTasks={3}/>
-            <ListContent />
+            <ListHeader
+                amount={tasks.length}
+                done={completedTasks}
+                tasks={tasks}
+            />
+            <ListContent deleteTask={handleDeleteTask} tasks={tasks}/>
         </section>
     );
 }
