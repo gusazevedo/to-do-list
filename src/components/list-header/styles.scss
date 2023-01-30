@@ -1,0 +1,30 @@
+.listHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 700;
+
+    .qnt {
+      color: var(--gray-100);
+      background: var(--gray-400);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+  }
+
+  .new {
+    color: var(--dark-blue);
+  }
+
+  .done {
+    color: var(--dark-purple);
+  }
+}

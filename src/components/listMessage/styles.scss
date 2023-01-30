@@ -1,0 +1,24 @@
+.messageContainer {
+  padding: 64px;
+  width: fit-content;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-300);
+    line-height: 22.4px;
+
+    .title {
+      font-weight: 700;
+    }
+  }
+}
