@@ -15,7 +15,6 @@ export function ListItem({id, message, done, onDelete, toggleTask}: ListItemProp
     const [isChecked, setIsChecked] = useState(done);
 
     function handleToggleTask(evt: React.ChangeEvent<HTMLInputElement>) {
-        console.log('toggle', evt.target.checked);
         toggleTask({id: evt.target.id, done: !isChecked});
         setIsChecked(!isChecked);
     }

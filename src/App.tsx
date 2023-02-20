@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {Header} from './components/header';
 import {Form} from './components/form';
 import {List} from './components/list';
@@ -34,10 +34,6 @@ export function App() {
         const newTaskList = tasks.filter(task => task.id !== id);
         setTasks(newTaskList);
     }
-
-    useEffect(() => {
-        console.log('tasks', tasks);
-    }, [tasks]);
 
     return (
         <div className="App">
