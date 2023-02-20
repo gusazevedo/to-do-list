@@ -3,15 +3,16 @@ import {ListHeader} from '../list-header';
 import {ListContent} from '../list-content';
 
 import './styles.scss';
-import {taskProps} from '../../utils';
+import {taskProps, toggleTask} from '../../utils';
 
 interface ListProps {
     tasks: taskProps[];
     completedTasks: number;
     handleDeleteTask: (id: string) => void;
+    toggleTask: ({}: toggleTask) => void;
 }
 
-export function List({tasks, completedTasks, handleDeleteTask}: ListProps) {
+export function List({tasks, completedTasks, handleDeleteTask, toggleTask}: ListProps) {
 
     return (
         <section className="listContainer">
@@ -20,7 +21,11 @@ export function List({tasks, completedTasks, handleDeleteTask}: ListProps) {
                 done={completedTasks}
                 tasks={tasks}
             />
-            <ListContent deleteTask={handleDeleteTask} tasks={tasks}/>
+            <ListContent
+                deleteTask={handleDeleteTask}
+                toggleTask={toggleTask}
+                tasks={tasks}
+            />
         </section>
     );
 }

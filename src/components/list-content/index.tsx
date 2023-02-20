@@ -1,14 +1,15 @@
-import {taskProps} from '../../utils';
+import {taskProps, toggleTask} from '../../utils';
 import {ListItem} from '../list-item';
 import './styles.scss';
 import {ListMessage} from '../list-message';
 
 interface ListContentProps {
     deleteTask: (id: string) => void;
+    toggleTask: ({}: toggleTask) => void;
     tasks: taskProps[];
 }
 
-export function ListContent({tasks, deleteTask}: ListContentProps) {
+export function ListContent({tasks, deleteTask, toggleTask}: ListContentProps) {
     return (
         <section className="listContent">
             <ul className="listBody">
@@ -19,11 +20,13 @@ export function ListContent({tasks, deleteTask}: ListContentProps) {
                             key={item.id}
                             id={item.id}
                             message={item.message}
+                            done={item.done}
                             onDelete={deleteTask}
+                            toggleTask={toggleTask}
                         />
                     ))
                 }
             </ul>
         </section>
     );
-}
+}87

@@ -5,6 +5,11 @@ export interface taskProps {
     deleted: boolean;
 }
 
+export interface toggleTask {
+    id: string,
+    done: boolean;
+}
+
 export const taskList = [
     {
         id: 'aksdjlakjsd',

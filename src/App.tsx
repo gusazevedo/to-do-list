@@ -1,8 +1,8 @@
+import {useEffect, useState} from 'react';
 import {Header} from './components/header';
 import {Form} from './components/form';
 import {List} from './components/list';
-import {useState} from 'react';
-import {taskProps} from './utils';
+import {taskProps, toggleTask} from './utils';
 
 import './global.scss';
 
@@ -20,10 +20,24 @@ export function App() {
         }]);
     }
 
+    function toggleTask(task: toggleTask) {
+        for (let item of tasks) {
+            if (item.id === task.id) {
+                item.done = task.done;
+            }
+        }
+
+        setTasks(tasks);
+    }
+
     function handleDeleteTask(id: string) {
         const newTaskList = tasks.filter(task => task.id !== id);
         setTasks(newTaskList);
     }
+
+    useEffect(() => {
+        console.log('tasks', tasks);
+    }, [tasks]);
 
     return (
         <div className="App">
@@ -33,8 +47,8 @@ export function App() {
                 tasks={tasks}
                 completedTasks={completedTasks}
                 handleDeleteTask={handleDeleteTask}
+                toggleTask={toggleTask}
             />
         </div>
     );
 }
-
