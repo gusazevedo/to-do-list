@@ -16,11 +16,6 @@
     gap: 12px;
 
     .check-item {
-      // accent-color: var(--blue);
-      // height: 100%;
-      // margin-top: 3px;
-      // cursor: pointer;
-
       -moz-appearance:none;
       -webkit-appearance:none;
       -o-appearance:none;
@@ -55,6 +50,8 @@
     color: var(--gray-100);
     line-height: 19.6px;
     font-size: 14px;
+
+    transition: all 0.2s
   }
 
   button {
@@ -71,6 +68,8 @@
       color: var(--danger);
     }
   }
+
+  transition: all 0.2s;
 }
 
 
@@ -80,5 +79,6 @@
   span {
     color: var(--gray-300);
     text-decoration-line: line-through;
+    transition: all 0.2s
   }
 }

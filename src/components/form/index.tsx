@@ -11,8 +11,10 @@ export function Form({handleNewTask}: FormContainerProps) {
 
     function handleForm(evt: React.FormEvent<HTMLFormElement>) {
         evt.preventDefault();
-        handleNewTask(value);
-        setValue('');
+        if (value.trim() !== '') {
+            handleNewTask(value);
+            setValue('');
+        }
     }
 
     return (
@@ -23,7 +25,9 @@ export function Form({handleNewTask}: FormContainerProps) {
                 value={value}
                 onChange={(evt) => setValue(evt.target.value)}
             />
-            <button>
+            <button
+                disabled={!value}
+            >
                 Criar
                 <PlusCircle size={18} weight="bold"/>
             </button>
