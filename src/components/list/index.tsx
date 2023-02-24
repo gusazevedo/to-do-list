@@ -9,7 +9,7 @@ interface ListProps {
     tasks: taskProps[];
     completedTasks: number;
     handleDeleteTask: (id: string) => void;
-    toggleTask: ({}: toggleTask) => void;
+    toggleTask: (id: string) => void;
 }
 
 export function List({tasks, completedTasks, handleDeleteTask, toggleTask}: ListProps) {

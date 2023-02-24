@@ -5,7 +5,7 @@ import {ListMessage} from '../list-message';
 
 interface ListContentProps {
     deleteTask: (id: string) => void;
-    toggleTask: ({}: toggleTask) => void;
+    toggleTask: (id: string) => void;
     tasks: taskProps[];
 }
 

@@ -8,15 +8,13 @@ interface ListItemProps {
     message: string;
     done: boolean;
     onDelete: (id: string) => void;
-    toggleTask: ({}: toggleTask) => void;
+    toggleTask: (id: string) => void;
 }
 
 export function ListItem({id, message, done, onDelete, toggleTask}: ListItemProps) {
-    const [isChecked, setIsChecked] = useState(done);
 
     function handleToggleTask(evt: React.ChangeEvent<HTMLInputElement>) {
-        toggleTask({id: evt.target.id, done: !isChecked});
-        setIsChecked(!isChecked);
+        toggleTask(evt.target.id);
     }
 
     return (
@@ -27,7 +25,7 @@ export function ListItem({id, message, done, onDelete, toggleTask}: ListItemProp
                     name={id}
                     id={id}
                     className="check-item"
-                    checked={isChecked}
+
                     onChange={(evt) => handleToggleTask(evt)}
                 />
                 <span>{message}</span>

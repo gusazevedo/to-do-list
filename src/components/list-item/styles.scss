@@ -6,16 +6,47 @@
 
   display: flex;
   gap: 12px;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 
   .item-info {
     display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     gap: 12px;
 
     .check-item {
-      accent-color: var(--blue);
-      height: 100%;
+      // accent-color: var(--blue);
+      // height: 100%;
+      // margin-top: 3px;
+      // cursor: pointer;
+
+      -moz-appearance:none;
+      -webkit-appearance:none;
+      -o-appearance:none;
+      outline: none;
+      content: none;
+    }
+
+    .check-item:before {
+      content: "✔";
+      font-size: 15px;
+
+      color: transparent !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      border: 2px solid var(--blue);
+    }
+
+    .check-item:checked:before {
+      background-color: var(--purple);
+      border: 2px solid var(--purple);
+      color: white !important;
     }
   }
 
@@ -27,6 +58,9 @@
   }
 
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
     border: none;
     color: var(--gray-300);
@@ -36,5 +70,15 @@
     &:hover {
       color: var(--danger);
     }
+  }
+}
+
+
+.item.done {
+  border: none;
+  
+  span {
+    color: var(--gray-300);
+    text-decoration-line: line-through;
   }
 }

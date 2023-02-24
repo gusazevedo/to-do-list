@@ -2,13 +2,12 @@ import {useState} from 'react';
 import {Header} from './components/header';
 import {Form} from './components/form';
 import {List} from './components/list';
-import {taskProps, toggleTask} from './utils';
+import {taskProps} from './utils';
 
 import './global.scss';
 
 export function App() {
     const [tasks, setTasks] = useState<taskProps[]>([]);
-    const completedTasks = tasks?.filter(item => item.done).length;
 
     function handleNewTask(newTask: string) {
         const id = String(Math.floor(Math.random() * 10000));
@@ -20,14 +19,19 @@ export function App() {
         }]);
     }
 
-    function toggleTask(task: toggleTask) {
-        for (let item of tasks) {
-            if (item.id === task.id) {
-                item.done = task.done;
+    function toggleTask(taskID: string) {
+        const newList = tasks.map((item => {
+            if (item.id === taskID) {
+                if (item.done === false) {
+                    item.done = true
+                } else {
+                    item.done = false
+                }
             }
-        }
 
-        setTasks(tasks);
+            return item
+        }));
+        setTasks(newList);
     }
 
     function handleDeleteTask(id: string) {
@@ -41,7 +45,7 @@ export function App() {
             <Form handleNewTask={handleNewTask}/>
             <List
                 tasks={tasks}
-                completedTasks={completedTasks}
+                completedTasks={tasks.filter(item => item.done).length}
                 handleDeleteTask={handleDeleteTask}
                 toggleTask={toggleTask}
             />
